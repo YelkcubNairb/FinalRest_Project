@@ -8,7 +8,8 @@ var studentMongodbCollection = mongoose.connect("mongodb://localhost/StudentsDb"
 
 var app = express();
 app.use('/students', studentRestRouter);
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false })); // NOTE ilker to parse application/x-www-form-urlencoded
+app.use(bodyParser.json()); // NOTE ilker to parse application/json
 
 app.listen(8016, function() {
     console.log("REST server running on port 8016");

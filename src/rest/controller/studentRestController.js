@@ -57,20 +57,24 @@ var StudentRestController = function(StudentModel) {
      * Fulfills POST REST requests. Directly saves student object that was passed in req.body.
      * NOTE _id and _version will be added to record by mongodb itself
      * http://localhost:8016/students             POST
-     * @param {*} req 
-     * @param {*} res 
+     * curl -X POST -H "Content-Type: application/json" -d     '{"name":"ilker_1", "lastname":"kiris_1", "grade":"freshman_1", "age":201, "isFullTime":false}' http://localhost:8016/students
+     * curl -X POST -H "Content-Type: application/json" --data '{"name":"ilker_1", "lastname":"kiris_1", "grade":"freshman_1", "age":201, "isFullTime":false}' http://localhost:8016/students
+     * @param {*} request 
+     * @param {*} response 
      */
-    var save = function(req, res) {
-        var student = new StudentModel(req.body);
-        console.log("--> LOOK req.body: %s", req.body);
+    var save = function(request, response) {
+        var student = new StudentModel(request.body);
+        console.log("--> LOOK request: %s", request);
+        console.log("--> LOOK request.body: %s", request.body);
+        console.log("--> LOOK request.body: %s", request.body);
         console.log("--> LOOK student: %s", student);
         student.save(function(error) {
             if (error) {
-                res.status(500);
-                res.send("Save failed");
+                response.status(500);
+                response.send("Save failed");
             } else {
-                res.status(201); // 201 means created
-                res.send(student);
+                response.status(201); // 201 means created
+                response.send(student);
             }
         });
     };
