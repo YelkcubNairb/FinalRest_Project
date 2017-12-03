@@ -38,6 +38,11 @@ npm run start
 ```
 
 ## to run app
++ 0th, make sure you the default data directory is there for mongodb to use
+```
+ls -lrtd /c/data/db
+mkdir -p /c/data/db
+```
 + 1st mongodb should be started, then you can start the app. To start mongodb at git bash command line
 ```
 mongod
