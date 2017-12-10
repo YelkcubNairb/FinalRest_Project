@@ -30,8 +30,9 @@ mkdir -p test/rest/controller
 + clone this project, install dependencies, start mongodb in a separate gitbash, start app in a separate gitbash
 ```
 cd /c/fdu/csci3444/projects
-git clone
+git clone https://github.com/fdu-csci3444/ex9_nodeJS_REST_monoose_jasmine.git
 cd ex9_nodeJS_REST_mongoose_jasmine
+npm install -g nodemon
 npm install
 mongod
 npm run start
