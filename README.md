@@ -1,14 +1,28 @@
 # ex9_nodeJS_REST_mongoose_jasmine
 Example showing nodeJS express app that serves REST requests connected to a mongodb collection. It also shows "jasmine" unit testing.
 
+## What is mongoose
+mongoose is a ODM (Object Data Mapper) node module that provides higher level API to connect, configure, access(read/write) to mongodb
+
+## What is body-parser
+Body-parser is a express middleware node module, that is used to serialize the body of http requests. It can be used to parse certain requests (json, ...)
+
+## What is jasmine
+Jasmine is a node module similar to mocha (includes features of mocha + simon + ..) that allows one to write unit tests and test them
+
+## What is CORS
+Cors is a express middleware node module that allows one to provision CORS (Cross Origin Resource Sharing) in an express app. One can open the whole app for all domains or white listed few. Or one can configure cors for specific routes in app.
+
+
+
 # setup from scratch
 + create project's package.json
 ```
 npm init --yes
 ```
-+ install express, body-parser, mongoose as dependency
++ install express, body-parser, mongoose, cors as dependency
 ```
-npm install express body-parser mongoose --save
+npm install express body-parser mongoose cors --save
 ```
 + install jasmine-node as dev dependency
 ```
