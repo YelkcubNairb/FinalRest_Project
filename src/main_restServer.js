@@ -14,6 +14,7 @@ app.use('/students', studentRestRouter);
 app.use('/api/v1/students', studentRestRouter);
 
 
-app.listen(8016, function() {
-    console.log("REST server running on port 8016");
+var portNumber = 8016;
+app.listen(portNumber, function() {
+    console.log("REST server running on port %s", portNumber);
 });

@@ -14,7 +14,10 @@ npm install express body-parser mongoose --save
 ```
 npm install jasmine-node --save-dev
 ```
-
++ make sure nodemon is installed globally
+```
+npm install -g nodemon
+```
 + project directories
 ```
 mkdir -p /c/fdu/csci3444/projects/ex9_nodeJS_REST_mongoose_jasmine
@@ -25,6 +28,11 @@ mkdir -p src/rest/route
 
 mkdir -p test/rest/controller
 ```
++ 1st create mongoose model, studentModel, under model dir
++ 2nd create rest controller, studentRestController, under controller dir
++ 3rd create rest router, studentRestRouter, under route dir
++ 4th create the main JS of rest service app, main_restServer, directly under src dir
++ 5th create test suite (Spec), studentRestControllerSpec, under test/rest/controller dir
 
 ## setup from clone
 + clone this project, install dependencies, start mongodb in a separate gitbash, start app in a separate gitbash
