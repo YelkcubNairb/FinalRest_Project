@@ -3,9 +3,9 @@ var mongoose = require('mongoose'); // mongoose is ODM (Object Data Mapper) node
 var bodyParser = require('body-parser'); // bodyParser used to serialize incoming request body to objects. This puts incoming JSON, x-www-form-urlencoded, ... inputs to request.body
 var cors = require('cors'); // NOTE ilker, cors is to allow cross origin requests
 
-var studentRestRouter = require('./rest/route/studentRestRouter');
+var teacherRestRouter = require('./rest/route/teacherRestRouter');
 
-var studentMongodbCollection = mongoose.connect("mongodb://localhost/StudentsDb");
+var teacherMongodbCollection = mongoose.connect("mongodb://localhost/teachersDb");
 
 // NOTE ilker set CORS variables 
 var corsWhiteListDomains = ['http://localhost:4200']; // let an angular app running running on default port 4200 come through
@@ -22,13 +22,13 @@ var corsOptionsDelegate = function(req, callback) {
 var app = express();
 // app.use(cors()); // NOTE ilker allow cross origin requests coming from any domain
 app.use(cors(corsOptionsDelegate)); // NOTE ilker allow cross origin requests coming from domains in corsWhiteListDomains
-// app.use('/students', studentRestRouter); // NOTE ilker important - make sure body-parser is specified before router. Otherwise you get undefined request.body in router
+// app.use('/teachers', teacherRestRouter); // NOTE ilker important - make sure body-parser is specified before router. Otherwise you get undefined request.body in router
 app.use(bodyParser.urlencoded({ extended: true })); // NOTE ilker to parse application/x-www-form-urlencoded, coming from form POSTs
 app.use(bodyParser.json()); // NOTE ilker to parse application/json coming from REST clients
-app.use('/students', studentRestRouter);
-app.use('/api/v1/students', studentRestRouter);
+app.use('/teachers', teacherRestRouter);
+app.use('/api/v1/teachers', teacherRestRouter);
 
-var portNumber = 8016;
+var portNumber = 9016;
 app.listen(portNumber, function() {
     console.log("REST server running on port %s", portNumber);
 });
